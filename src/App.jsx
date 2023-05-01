@@ -1,35 +1,48 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useEffect, useState } from "react";
+import "./App.css";
+import axios from "axios";
+import Recipe from "./Recipe";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const APP_ID = "22c0f465";
+  const APP_KEY = "82a6a7f5d80e34046635519c08bd88e0";
+
+  const exampleAPI = `https://api.edamam.com/search?q=chicken&app_id=${APP_ID}&app_key=${APP_KEY}`;
+
+  const [recipes, setRecipes] = useState([]);
+
+  useEffect(() => {
+    getRecipes();
+  }, []);
+
+  const getRecipes = async () => {
+    const response = await fetch(exampleAPI);
+    const data = await response.json();
+    setRecipes(data.hits);
+    console.log(data.hits);
+  };
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
+    <div className="App">
+      <form action="" className="search-form">
+        <input type="text" name="" id="" className="search-bar" />
+        <button type="submit" className="search-button">
+          Search
         </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+      </form>
+      { recipes.length ?      
+      recipes.map((recipe) => (
+        <Recipe
+          key={recipe.recipe.label}
+          title={recipe.recipe.label}
+          imgUrl={recipe.recipe.image}
+          ingredients={recipe.recipe.ingredients}
+          dietLabels={recipe.recipe.dietLabels}
+          healthLabels={recipe.recipe.healthLabels}
+        />
+      )): "No Recipe found"}
+    </div>
+  );
 }
 
-export default App
+export default App;
