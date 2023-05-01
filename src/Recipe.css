@@ -1,0 +1,38 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.recipe {
+  width: 50%;
+  background: rgb(210, 201, 201);
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1.9rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 3px 4px 5px #f5f1f1;
+  color: #252525;
+}
+
+.recipe .recipe-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.recipe img {
+  width: 170px;
+  object-fit: cover;
+}
+
+.recipe .recipe-brief {
+  margin-left: 1.5rem;
+  text-align: left;
+}
+
+.recipe .header-description {
+  color: #444a54;
+}
