@@ -17,7 +17,7 @@ const Recipe = ({ title, imgUrl, ingredients, dietLabels, healthLabels }) => {
             }
             {
                 healthLabels.map(healthLabel=>(
-                    <span>{healthLabel}  &bull; </span>
+                    <span>{healthLabel} &nbsp; &bull; &nbsp; </span>
                 ))
             }
           </p>
