@@ -37,16 +37,20 @@ function App() {
     <div className="App">
       <form onSubmit={getSearch} className="search-form">
         <input
+          id="search-bar"
           type="text"
           value={search}
           className="search-bar"
           onChange={updateSearch}
+          placeholder="Chicken, Mango, Banana...."
         />
         <button type="submit" className="search-button">
           Search
         </button>
       </form>
-      <h2 style={{marginTop: "2rem"}}>{query.charAt(0).toUpperCase() + query.slice(1)} Recipes</h2>
+      <h2 style={{ marginTop: "2rem" }}>
+        {query.charAt(0).toUpperCase() + query.slice(1)} Recipes
+      </h2>
       <div className="recipe-container">
         {recipes.length
           ? recipes.map((recipe) => (
