@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import "./App.css";
 import axios from "axios";
 import Recipe from "./Recipe";
+import SearchForm from "./SearchForm";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
@@ -35,19 +36,11 @@ function App() {
   };
   return (
     <div className="App">
-      <form onSubmit={getSearch} className="search-form">
-        <input
-          id="search-bar"
-          type="text"
-          value={search}
-          className="search-bar"
-          onChange={updateSearch}
-          placeholder="Chicken, Mango, Banana...."
-        />
-        <button type="submit" className="search-button">
-          Search
-        </button>
-      </form>
+      <SearchForm
+        search={search}
+        updateSearch={updateSearch}
+        getSearch={getSearch}
+      />
       <h2 style={{ marginTop: "2rem" }}>
         {query.charAt(0).toUpperCase() + query.slice(1)} Recipes
       </h2>
