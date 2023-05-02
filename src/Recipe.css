@@ -7,14 +7,14 @@
 }
 
 .recipe {
-  width: 50%;
-  background: rgb(210, 201, 201);
+  width: 550px;
+  background: #f3f3f3;
   border-radius: 0.5rem;
   padding: 1rem;
-  margin-bottom: 1.9rem;
+  margin-bottom: 2rem;
   display: flex;
   flex-direction: column;
-  box-shadow: 3px 4px 5px #f5f1f1;
+  flex: 2 2 auto;
   color: #252525;
 }
 
@@ -35,4 +35,9 @@
 
 .recipe .header-description {
   color: #444a54;
+  font-size: 0.9rem;
+}
+
+.recipe:hover {
+  box-shadow: 2px 2px 5px #656464;
 }
