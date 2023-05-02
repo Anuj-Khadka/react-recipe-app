@@ -1,14 +1,25 @@
 import React from "react";
 import "./Recipe.css";
 
-const Recipe = ({ title, imgUrl, ingredients, dietLabels, healthLabels, calories, cuisineType }) => {
+const Recipe = ({
+  title,
+  imgUrl,
+  ingredients,
+  dietLabels,
+  healthLabels,
+  calories,
+  cuisineType,
+  itemLink,
+}) => {
   // console.log(ingredients)
   return (
     <div className="recipe">
       <div className="recipe-header">
         <img src={imgUrl} alt={`${title}-image`} />
         <div className="recipe-brief">
-          <h2 className="recipe-title">{title}</h2>
+          <h2 className="recipe-title">
+            <a href={itemLink}>{title}</a>
+          </h2>
           <p className="header-description">
             {dietLabels.map((dietLabel) => (
               <span>{dietLabel} &nbsp; &bull; &nbsp; </span>
@@ -22,14 +33,12 @@ const Recipe = ({ title, imgUrl, ingredients, dietLabels, healthLabels, calories
       <hr />
       <div className="recipe-description">
         <div className="recipe-specs">
-          <h3>
-            Specs
-          </h3>
-              <ul>
-                <li>Calories: {Math.ceil(calories)} Kcal</li>
-                <li>Cuisine Type: {cuisineType}</li>
-                <li></li>
-              </ul>
+          <h3>Specs</h3>
+          <ul>
+            <li>Calories: {Math.ceil(calories)} Kcal</li>
+            <li>Cuisine Type: {cuisineType}</li>
+            <li></li>
+          </ul>
         </div>
         <div className="recipe-ingredients">
           <h3>Ingredients</h3>
