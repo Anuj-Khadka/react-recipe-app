@@ -55,7 +55,7 @@ function App() {
         {recipes.length
           ? recipes.map((recipe) => (
               <Recipe
-                key={recipe.recipe.label}
+                key={recipe.recipe.image}
                 title={recipe.recipe.label}
                 imgUrl={recipe.recipe.image}
                 ingredients={recipe.recipe.ingredients}
@@ -63,6 +63,7 @@ function App() {
                 healthLabels={recipe.recipe.healthLabels}
                 calories={recipe.recipe.calories}
                 cuisineType={recipe.recipe.cuisineType}
+                itemLink={recipe.recipe.url}
               />
             ))
           : "No Recipe found. Enter a recipe keyword..."}
