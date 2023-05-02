@@ -5,6 +5,7 @@ import Recipe from "./Recipe";
 
 function App() {
   const [recipes, setRecipes] = useState([]);
+  const [loading, setLoading] = useState(false);
   const [search, setSearch] = useState("");
   const [query, setQuery] = useState("");
 
@@ -45,18 +46,23 @@ function App() {
           Search
         </button>
       </form>
-      {recipes.length
-        ? recipes.map((recipe) => (
-            <Recipe
-              key={recipe.recipe.label}
-              title={recipe.recipe.label}
-              imgUrl={recipe.recipe.image}
-              ingredients={recipe.recipe.ingredients}
-              dietLabels={recipe.recipe.dietLabels}
-              healthLabels={recipe.recipe.healthLabels}
-            />
-          ))
-        : "No Recipe found"}
+      <h2 style={{marginTop: "2rem"}}>{query.charAt(0).toUpperCase() + query.slice(1)} Recipes</h2>
+      <div className="recipe-container">
+        {recipes.length
+          ? recipes.map((recipe) => (
+              <Recipe
+                key={recipe.recipe.label}
+                title={recipe.recipe.label}
+                imgUrl={recipe.recipe.image}
+                ingredients={recipe.recipe.ingredients}
+                dietLabels={recipe.recipe.dietLabels}
+                healthLabels={recipe.recipe.healthLabels}
+                calories={recipe.recipe.calories}
+                cuisineType={recipe.recipe.cuisineType}
+              />
+            ))
+          : "No Recipe found"}
+      </div>
     </div>
   );
 }
