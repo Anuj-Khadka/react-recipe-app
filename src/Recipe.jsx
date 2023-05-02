@@ -19,18 +19,19 @@ const Recipe = ({ title, imgUrl, ingredients, dietLabels, healthLabels, calories
           </p>
         </div>
       </div>
+      <hr />
       <div className="recipe-description">
-        <div>
+        <div className="recipe-specs">
           <h3>
             Specs
           </h3>
               <ul>
-                <li>Calories: {Math.ceil(calories)}Kcal</li>
+                <li>Calories: {Math.ceil(calories)} Kcal</li>
                 <li>Cuisine Type: {cuisineType}</li>
                 <li></li>
               </ul>
         </div>
-        <div>
+        <div className="recipe-ingredients">
           <h3>Ingredients</h3>
           <ul>
             {ingredients.map((ingredient) => (
