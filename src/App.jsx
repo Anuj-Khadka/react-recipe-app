@@ -65,7 +65,7 @@ function App() {
                 cuisineType={recipe.recipe.cuisineType}
               />
             ))
-          : "No Recipe found"}
+          : "No Recipe found. Enter a recipe keyword..."}
       </div>
     </div>
   );
