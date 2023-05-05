@@ -1,4 +1,4 @@
-A recipe application made with pure React JS
+A recipe application made with pure React JS.
 
 https://developer.edamam.com/recipe-demo
 
